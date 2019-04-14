@@ -1,6 +1,6 @@
 .description {
     width: 60%;
-    height: 50px;
+    height: 45px;
     padding: 12px 20px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -9,6 +9,20 @@
     resize: none;
 }
 
+input {
+    height: 15px;
+    width: 25%;
+    margin: 5px;
+}
+
 input[type=text]:focus {
     border: 3px solid #555;
+}
+
+select {
+    width: 15%;
+}
+
+h3 {
+    font-size: 30px;
 }

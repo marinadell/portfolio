@@ -1,0 +1,9 @@
+h1{
+    text-decoration: underline;
+    font-size: 45px;
+}
+
+.link{
+    display: flex;
+    justify-content: flex-end;
+}

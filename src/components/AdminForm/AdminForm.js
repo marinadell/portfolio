@@ -63,6 +63,7 @@ class AdminForm extends Component {
                     <option value={tags.id}>{tags.name}</option>
                     )}
                 </select>
+                <br/>
                 <input type="text" placeholder="Github URL" 
                         onChange={this.handleChangeFor('github')}></input>
                 <input type="text" placeholder="Website URL" 

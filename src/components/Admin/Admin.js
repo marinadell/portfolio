@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import AdminForm from '../AdminForm/AdminForm';
 import AdminTable from '../AdminTable/AdminTable';
+import './Admin.css';
 
 class Admin extends Component {
     render (){
@@ -10,8 +11,8 @@ class Admin extends Component {
           <div>
               <header>
                   <h1>ADMIN</h1>
+                  <Link to="/" className="link">Back to Projects</Link>
               </header>
-              <Link to="/">Back to Projects</Link>
               <AdminForm />
               <AdminTable />
           </div> 
