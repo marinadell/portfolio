@@ -9,10 +9,26 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import axios from 'axios';
+import { takeEvery, put } from 'redux-saga/effects';
+
+function* projectListSaga(action) {
+    console.log('Hit the Project List', action);
+    try {
+      // Attempt retrieving plant list, updating the "plantList" Reducer
+      const getResponse = yield axios.get('/project')
+      console.log(getResponse);
+      const action = { type: 'SET_PROJECTS', payload: getResponse.data };
+      yield put(action);
+    }
+    catch (error) {
+      console.log(`Couldn't get list`, error);
+    }
+}
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    yield takeEvery('GET_PROJECTS', projectListSaga)
 }
 
 // Create sagaMiddleware
@@ -20,6 +36,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Used to store projects returned from the server
 const projects = (state = [], action) => {
+    console.log(action);
     switch (action.type) {
         case 'SET_PROJECTS':
             return action.payload;
