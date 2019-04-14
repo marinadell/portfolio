@@ -29,8 +29,3 @@ const mapStateToProps = reduxState => ({
   
 export default connect(mapStateToProps)(ProjectList);
 
-        // <ul>
-        //     {this.props.reduxState.projects.map(project=>
-        //     <li><img src={project.thumbnail}/> {project.project_name} with {project.name}</li>)}
-        // </ul> 
-

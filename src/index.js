@@ -27,9 +27,25 @@ function* projectListSaga(action) {
     }
 }
 
+function* tagListSaga(action) {
+    console.log('Hit the Project List', action);
+    try {
+      // Attempt retrieving tag list, updating the "projects" Reducer
+      const response = yield axios.get('/tags')
+      console.log(response);
+      const action = { type: 'SET_TAGS', payload: response.data };
+      console.log(action);
+      yield put(action);
+    }
+    catch (error) {
+      console.log(`Couldn't get tag list`, error);
+    }
+}
+
 // Create the rootSaga generator function
 function* rootSaga() {
-    yield takeEvery('GET_PROJECTS', projectListSaga)
+    yield takeEvery('GET_PROJECTS', projectListSaga);
+    yield takeEvery('GET_TAGS', tagListSaga);
 }
 
 // Create sagaMiddleware
