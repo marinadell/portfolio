@@ -15,10 +15,11 @@ import { takeEvery, put } from 'redux-saga/effects';
 function* projectListSaga(action) {
     console.log('Hit the Project List', action);
     try {
-      // Attempt retrieving plant list, updating the "plantList" Reducer
-      const getResponse = yield axios.get('/project')
-      console.log(getResponse);
-      const action = { type: 'SET_PROJECTS', payload: getResponse.data };
+      // Attempt retrieving project list, updating the "projects" Reducer
+      const response = yield axios.get('/project')
+      console.log(response);
+      const action = { type: 'SET_PROJECTS', payload: response.data };
+      console.log(action);
       yield put(action);
     }
     catch (error) {
@@ -36,7 +37,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // Used to store projects returned from the server
 const projects = (state = [], action) => {
-    console.log(action);
+    //console.log(action.type);
     switch (action.type) {
         case 'SET_PROJECTS':
             return action.payload;
