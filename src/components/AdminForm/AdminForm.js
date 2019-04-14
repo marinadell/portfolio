@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './AdminForm.css';
 
 class AdminForm extends Component {
 
@@ -66,8 +67,9 @@ class AdminForm extends Component {
                         onChange={this.handleChangeFor('github')}></input>
                 <input type="text" placeholder="Website URL" 
                         onChange={this.handleChangeFor('website')}></input>
-                <input type="text" placeholder="Description" 
+                <input type="text" placeholder="Description" className="description"
                         onChange={this.handleChangeFor('description')}></input>
+                <br/>
                 <button onClick={this.submitButton}>Submit</button>
               </form>
         ) 
