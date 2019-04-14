@@ -9,7 +9,9 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 const projectRouter = require('./project.router');
+const tagRouter = require('./tag.router');
 app.use('/project', projectRouter);
+app.use('/tags', tagRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
