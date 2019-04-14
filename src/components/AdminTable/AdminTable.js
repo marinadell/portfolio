@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Moment from 'react-moment';
+import './AdminTable.css';
 
 class AdminTable extends Component {
 
@@ -15,6 +17,7 @@ class AdminTable extends Component {
               <thead>
                   <tr>
                       <td>Name</td>
+                      <td>Date Added</td>
                       <td>Action</td>
                   </tr>
               </thead>
@@ -22,6 +25,7 @@ class AdminTable extends Component {
                   {this.props.reduxState.projects.map(project =>
                     <tr key={project.id}>
                         <td>{project.project_name}</td>
+                        <td><Moment date={project.date_completed}/></td>
                         <td><button onClick={this.deleteButton} value={project.id}>Delete</button></td>
                     </tr>)}
               </tbody>
