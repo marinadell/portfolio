@@ -5,8 +5,8 @@ class AdminTable extends Component {
 
     deleteButton = (event) => {
         event.preventDefault();
-        console.log(event.target.value);
-        //this.props.dispatch({ type: 'DELETE_PROJECT', payload: this.state.newProject })
+        console.log('Delete Button Clicked', event.target.value);
+        this.props.dispatch({ type: 'DELETE_PROJECT', payload: event.target.value })
     }
 
     render (){

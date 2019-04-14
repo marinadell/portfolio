@@ -41,6 +41,20 @@ function* addProjectSaga(action) {
     }
   }
 
+function* deleteProjectSaga(action) {
+    console.log('Hit the deleteProjectSaga', action);
+    try {
+      // Attempt deleting project, then calling projectListSaga
+      yield axios.delete(`/project/${action.payload}`);
+      yield put({ type: 'GET_PROJECTS' });
+    }
+    catch (error) {
+      // Log and alert if an error occurs
+      console.log(`Couldn't delete Project`, error);
+      alert(`Sorry, couldn't delete your project. Try again later`);
+    }
+}
+
 function* tagListSaga(action) {
     console.log('Hit the Project List', action);
     try {
@@ -61,6 +75,8 @@ function* rootSaga() {
     yield takeEvery('GET_PROJECTS', projectListSaga);
     yield takeEvery('GET_TAGS', tagListSaga);
     yield takeEvery('ADD_PROJECT', addProjectSaga);
+    yield takeEvery('DELETE_PROJECT', deleteProjectSaga);
+    
 
 }
 
