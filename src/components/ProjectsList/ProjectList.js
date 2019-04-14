@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ProjectList.css';
+import Header from '../Header/Header';
 
-class Header extends Component {
+class ProjectList extends Component {
     render (){
         return(
             <div>
+                <Header />
                 {this.props.reduxState.projects.map(project=> 
                 <div className="card" key={project.id}>
                     <img src={project.thumbnail} alt={project.project_name}/>
@@ -25,7 +27,7 @@ const mapStateToProps = reduxState => ({
     reduxState,
   });
   
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(ProjectList);
 
         // <ul>
         //     {this.props.reduxState.projects.map(project=>
