@@ -15,4 +15,25 @@ router.get( '/', (req, res) => {
   })
 })
 
+router.post('/', (req, res) => {
+  const newProject = req.body;
+  console.log(newProject);
+  const queryText = `INSERT INTO projects ("name", "description", "github", "date_completed", "tag_id", "website")
+                    VALUES ($1, $2, $3, $4, $5, $6)`;
+  const queryValues = [
+    newProject.project,
+    newProject.description,
+    newProject.github,
+    newProject.date,
+    newProject.tag,
+    newProject.website,
+  ];
+  pool.query(queryText, queryValues)
+    .then(() => { res.sendStatus(201); })
+    .catch((err) => {
+      console.log('Error completing adding new Project', err);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
