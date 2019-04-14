@@ -6,6 +6,7 @@ class Header extends Component {
         return(
           <header className="header">
             <img src="/images/mari.jpg" className="header-photo" alt="Amareya"/>
+            <br />
             <h1>Amareya Allen-Dabney</h1>
           </header>  
         ) 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './ProjectList.css';
 
 class Header extends Component {
     render (){
@@ -9,7 +10,7 @@ class Header extends Component {
                 <div className="card" key={project.id}>
                     <img src={project.thumbnail} alt={project.project_name}/>
                     <div className="container">
-                        <h3>{project.project_name}</h3>
+                        <h2>{project.project_name}</h2>
                         <p>{project.description}</p>
                         <a href={project.github}>Github</a>
                         <p className="tag">{project.name}</p>

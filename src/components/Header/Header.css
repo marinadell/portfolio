@@ -1,5 +1,8 @@
 .header {
-    background-color: yellow;
+    background-image: linear-gradient(grey, yellow);
+    height: 150px;
+    text-align: center;
+    padding: 20px;
 }
 
 .header-photo{
