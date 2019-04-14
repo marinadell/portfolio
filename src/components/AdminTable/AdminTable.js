@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class AdminTable extends Component {
+
+    deleteButton = (event) => {
+        event.preventDefault();
+        console.log(event.target.value);
+        //this.props.dispatch({ type: 'DELETE_PROJECT', payload: this.state.newProject })
+    }
+
     render (){
         return(
           <table>
@@ -13,9 +20,9 @@ class AdminTable extends Component {
               </thead>
               <tbody>
                   {this.props.reduxState.projects.map(project =>
-                    <tr>
+                    <tr key={project.id}>
                         <td>{project.project_name}</td>
-                        <td><button>Delete</button></td>
+                        <td><button onClick={this.deleteButton} value={project.id}>Delete</button></td>
                     </tr>)}
               </tbody>
           </table>

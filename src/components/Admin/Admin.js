@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from "react-router-dom";
 import AdminForm from '../AdminForm/AdminForm';
+import AdminTable from '../AdminTable/AdminTable';
 
 class Admin extends Component {
     render (){
@@ -12,6 +13,7 @@ class Admin extends Component {
               </header>
               <Link to="/">Back to Projects</Link>
               <AdminForm />
+              <AdminTable />
           </div> 
         ) 
     }
